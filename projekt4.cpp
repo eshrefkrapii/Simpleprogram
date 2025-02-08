@@ -48,4 +48,31 @@ void Kalkulatori() {
             return;
         }
     }
+
+    double shumaNotave = 0;
+    int shumaECTS = 0;
+    for (int i = 0; i < numriNotave; ++i) {
+        double nota;
+        int ects;
+
+        Perserit:
+        cout << "Shkruani noten e " << i + 1 << ": ";
+        cin >> nota;
+
+        if (nota < 0)
+        {
+            cout << "Nuk ka note negative" << endl;
+            goto Perserit;
+        }
+        else if (nota < 6)
+        {
+            cout << "Ju nuk keni kaluar lenden!" << endl;
+            goto Perserit;
+        }
+        else if (nota > 10)
+        {
+            cout << "Nuk ekziston kjo note!" << endl;
+            goto Perserit;
+        }
+    }
 }
