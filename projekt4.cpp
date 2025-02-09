@@ -36,6 +36,9 @@ void menaxhoNotat() {
         cout << "\n--- Menaxho studentet dhe notat ---\n";
         cout << "1. Shto nje student te ri dhe notat e atij studenti\n";
         cout << "2. Shiko te gjithe studentet dhe notat e regjistruar deri me tani\n";
+        cout << "3. Llogarit mesataren e notave te nje studenti (duke cekur emrin e studentit)\n";
+        cout << "4. Gjej noten me te larte dhe me te ulet\n";
+        cout << "5. Kthehu te Menu-ja kryesore\n";
         cout << "Zgjedhni: ";
         cin >> zgjedhja;
         cout << endl;
@@ -82,6 +85,55 @@ void menaxhoNotat() {
                 }
                 break;
             }
+            case 3: {
+                string emri;
+                cout << "Shkruani emrin e studentit: ";
+                cin >> emri;
+                bool igjetur = false;
+                for (int i = 0; i < numriStudenteve; ++i) {
+                    if (notateStudenteve[i].emri == emri) {
+                        igjetur = true;
+                        int shuma = 0;
+                        for (int j = 0; j < notateStudenteve[i].numriNotave; ++j) {
+                            shuma += notateStudenteve[i].notat[j];
+                        }
+                        double mesatarja = double(shuma) / notateStudenteve[i].numriNotave;
+                        cout << "Mesatarja e notave te " << emri << " eshte: " << mesatarja << "\n";
+                        break;
+                    }
+                }
+                if (!igjetur) {
+                    cout << "Studenti nuk u gjet.\n";
+                }
+                break;
+            }
+            case 4: {
+                if (numriStudenteve == 0) {
+                    cout << "Nuk ka studente per te vleresuar.\n";
+                    break;
+                }
+                int meELarta = notateStudenteve[0].notat[0];
+                int meEUlta = notateStudenteve[0].notat[0];
+
+                for (int i = 0; i < numriStudenteve; ++i) {
+                    for (int j = 0; j < notateStudenteve[i].numriNotave; ++j) {
+                        meELarta = max(meELarta, notateStudenteve[i].notat[j]);
+                        meEUlta = min(meEUlta, notateStudenteve[i].notat[j]);
+                    }
+                }
+
+                cout << "Nota me e larte: " << meELarta << "\n";
+                cout << "Nota me e ulet: " << meEUlta << "\n";
+                break;
+            }
+
+            case 5:
+                cout << "Kthyer tek Menuja kryesore...\n";
+                break;
+
+            default:
+                cout << "Zgjedhje jo valide. Provoni perseri.\n";
+
         }
 void Kalkulatori() {
 
