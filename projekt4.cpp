@@ -159,24 +159,20 @@ void Kalkulatori() {
         double nota;
         int ects;
 
-        Perserit:
+      do {
         cout << "Shkruani noten e " << i + 1 << ": ";
         cin >> nota;
 
-        if (nota < 0)
-        {
+        if (nota < 0) {
             cout << "Nuk ka note negative" << endl;
-            goto Perserit;
-        }
-        else if (nota < 6)
-        {
+        } 
+        else if (nota < 6) {
             cout << "Ju nuk keni kaluar lenden!" << endl;
-            goto Perserit;
-        }
-        else if (nota > 10)
-        {
+        } 
+        else if (nota > 10) {
             cout << "Nuk ekziston kjo note!" << endl;
-            goto Perserit;
         }
+      }
+    while (nota < 0 || nota < 6 || nota > 10);    
     }
 }
