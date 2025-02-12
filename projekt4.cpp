@@ -28,6 +28,7 @@ void Kalkulatori();
 int main() {
 
     menuKryesore();
+    Kalkulatori();
 
     return 0;
 }
@@ -172,11 +173,10 @@ void Kalkulatori() {
      cout << "\n--- Kalkulatori ---\n";
      int numriNotave;
      cout << "Shkruani numrin e notave qe keni: ";
-     cin >> numriNotave;
-
-     if (numriNotave <= 0) {
-         cout << "Numri i notave duhet te jete me i madh se zero.\n";
-         return;
+     while (!(cin >> numriNotave) || numriNotave <= 0) {
+         cout << "Ju lutem shkruani nje numer te vlefshem te notave: ";
+         cin.clear();
+         cin.ignore(1000, '\n');
      }
 
      double shumaNotave = 0;
@@ -190,16 +190,13 @@ void Kalkulatori() {
              cout << "Shkruani noten e " << i + 1 << ": ";
              cin >> nota;
 
-             if (nota < 0) {
-                 cout << "Nuk ka note negative" << endl;
-             }
-             else if (nota < 6) {
-                 cout << "Ju nuk keni kaluar lenden!" << endl;
+             if (nota < 6) {
+                 cout << "Nota duhet te jete 6 ose me larte,perndryshe ju nuk keni kaluar lenden" << endl;
              }
              else if (nota > 10) {
                  cout << "Nuk ekziston kjo note!" << endl;
              }
-         } while (nota < 0 || nota < 6 || nota > 10);
+         } while (nota < 6 || nota > 10);
 
          do {
              cout << "Shkruani ECTS per kete lende (7, 6, ose 5): ";
@@ -213,6 +210,18 @@ void Kalkulatori() {
          shumaNotave += nota * ects;
          shumaECTS += ects;
      }
- }
+     double mesatarja = shumaNotave / shumaECTS;
+     cout << fixed << setprecision(2);
+     cout << "Mesatarja e notave eshte: " << mesatarja << "\n";
+     cout << "Totali i ECTS: " << shumaECTS << "\n";
+
+     do {
+         cout << "Deshironi ta perserisni (P - Po, J - Jo)? ";
+         cin >> perserit;
+         cin.ignore(1000, '\n'); 
+
+     } while (perserit != 'P' && perserit != 'p' && perserit != 'J' && perserit != 'j');
+
+ } while (perserit == 'P' || perserit == 'p');
  }
 
