@@ -30,6 +30,7 @@ enum NotaKategori {
     SHKELQYESHEM
 };
 
+
 void menuKryesore();
 void menaxhoNotat();
 void Kalkulatori();
