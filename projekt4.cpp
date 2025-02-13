@@ -30,6 +30,19 @@ enum NotaKategori {
     SHKELQYESHEM
 };
 
+// Funksioni qe kthen kategorine e notes bazuar ne mesatare
+NotaKategori ktheKategorine(double mesatarja) {
+    if (mesatarja < 6.0)
+        return E_PAKALUAR;
+    else if (mesatarja < 7.0)
+        return KALUESHME;
+    else if (mesatarja < 8.0)
+        return MIRE;
+    else if (mesatarja < 9.0)
+        return SHUME_MIRE;
+    else
+        return SHKELQYESHEM;
+}
 
 void menuKryesore();
 void menaxhoNotat();
