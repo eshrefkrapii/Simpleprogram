@@ -21,6 +21,15 @@ struct Studenti {
 Studenti notateStudenteve[STUDENTET_MAX];
 int numriStudenteve = 0;
 
+// Enum per kategorizimin e notave
+enum NotaKategori {
+    E_PAKALUAR,
+    KALUESHME,
+    MIRE,
+    SHUME_MIRE,
+    SHKELQYESHEM
+};
+
 void menuKryesore();
 void menaxhoNotat();
 void Kalkulatori();
