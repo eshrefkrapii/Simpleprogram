@@ -51,7 +51,6 @@ void Kalkulatori();
 int main() {
 
     menuKryesore();
-    Kalkulatori();
 
     return 0;
 }
