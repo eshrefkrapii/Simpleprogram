@@ -107,6 +107,7 @@ void menaxhoNotat() {
                 cout << "Nuk mund te shtoni me shume se " << NOTA_MAX << " nota.\n";
                 break;
             }
+            
             Studenti& studentiRi = notateStudenteve[numriStudenteve++];
             studentiRi.emri = emri;
             studentiRi.numriNotave = n;
@@ -115,8 +116,8 @@ void menaxhoNotat() {
                 cin >> nota;
                 studentiRi.notat[i] = nota;
             }
-            cout << "Studenti u shtua me sukses!\n";
-            break;
+                cout << "Studenti u shtua me sukses!\n";
+                break;
         }
         case 2: {
             if (numriStudenteve == 0) {
@@ -147,6 +148,16 @@ void menaxhoNotat() {
                     }
                     double mesatarja = double(shuma) / notateStudenteve[i].numriNotave;
                     cout << "Mesatarja e notave te " << emri << " eshte: " << mesatarja << "\n";
+
+                    // Marrim kategorine e notes dhe e shfaqim
+                    NotaKategori kategoria = ktheKategorine(mesatarja);
+                    switch (kategoria) {
+                    case E_PAKALUAR: cout << "Kategoria: E Pa Kaluar\n"; break;
+                    case KALUESHME: cout << "Kategoria: Kalueshme\n"; break;
+                    case MIRE: cout << "Kategoria: Mire\n"; break;
+                    case SHUME_MIRE: cout << "Kategoria: Shume Mire\n"; break;
+                    case SHKELQYESHEM: cout << "Kategoria: E Shkelqyeshme\n";break;
+                    }
                     break;
                 }
             }
@@ -183,7 +194,7 @@ void menaxhoNotat() {
             cout << "Zgjedhje jo valide. Provoni perseri.\n";
 
         }
-    }
+    }while (zgjedhja != 5);
 }
 
 
