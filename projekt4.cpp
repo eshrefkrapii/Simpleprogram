@@ -257,5 +257,5 @@ void Kalkulatori() {
      } while (perserit != 'P' && perserit != 'p' && perserit != 'J' && perserit != 'j');
 
  } while (perserit == 'P' || perserit == 'p');
- }
+}
 
